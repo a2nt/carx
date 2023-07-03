@@ -10,10 +10,13 @@ import Video from 'react-native-video';
 
 import styles from './styles';
 
+const TAG = '[screens/Player/index]';
 const PlayerScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.Player>>();
   const { goBack } = useNavigation();
   const { loading, url } = useYouTubeMP4(params.youTubeId);
+
+  console.log(TAG, 'Play: ' + url);
 
   useEffect(() => {
     if (!loading && !url) {

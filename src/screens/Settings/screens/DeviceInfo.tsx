@@ -6,7 +6,7 @@ import DeviceInfo from 'react-native-device-info';
 import { getManufacturer } from 'react-native-device-info';
 
 const DeviceInfoAsync = () => {
-  const [asyncDeviceInfo, setAsyncDeviceInfo] = useState({});
+  const [asyncDeviceInfo, setAsyncDeviceInfo] = useState(false);
 
   useEffect(() => {
     getDataAsync();
@@ -98,7 +98,11 @@ const DeviceInfoAsync = () => {
   return (
     <>
       <ScrollView>
-        <Text>{JSON.stringify(asyncDeviceInfo, null, '  ')}</Text>
+        {!asyncDeviceInfo ? (
+          <Text>LOADING ...</Text>
+        ) : (
+          <Text>{JSON.stringify(asyncDeviceInfo, null, '  ')}</Text>
+        )}
       </ScrollView>
     </>
   );

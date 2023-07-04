@@ -1,7 +1,8 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { Button } from '@rneui/themed';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
-import { Button, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 
 const SettingsMenu = () => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
@@ -13,7 +14,7 @@ const SettingsMenu = () => {
   return (
     <>
       <ScrollView>
-        <Button title="Device Info" onPress={goToDeviceInfo} />
+        <Button onPress={goToDeviceInfo}>Device Info</Button>
       </ScrollView>
     </>
   );
